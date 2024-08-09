@@ -12,10 +12,13 @@ const home = async (req,res) =>{
 }
 
 // ####### Registration Logic  #######
- const register = (req,res) =>{
+ const register = async (req,res) =>{
     try{
-        res.status(200).send("welcome to registration page");
+        res.status(200).send("welcome to registration page using contoller");
+    }
+    catch (error){
+        res.status(400).send({msg:"page not found"})
     }
  }
 
-module.exports = {home};
+module.exports = {home , register};
