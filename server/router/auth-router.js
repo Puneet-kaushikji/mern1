@@ -5,6 +5,7 @@ const authcontrollers = require("../controllers/auth-controller");
 
 
 
+
 router.route("/").get(authcontrollers.home);
 
 
