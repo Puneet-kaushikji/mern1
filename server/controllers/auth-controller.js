@@ -31,7 +31,7 @@ const home = async (req,res) =>{
 
        const userCreated = await User.create({username,email,phone,password});
 
-        res.status(200).json({msg : userCreated});
+        res.status(201).json({msg : userCreated});
     }
     catch (error){
         res.status(500).send({msg:"internal server error"})
