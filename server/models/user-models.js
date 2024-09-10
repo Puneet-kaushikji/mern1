@@ -11,7 +11,8 @@
     },
     email:{
         type:String,
-        required:true
+        required:true,
+        unique:true,
     },
     phone:{
         type:String,
@@ -69,8 +70,6 @@
         console.error("Token Error",error);
     }
  };
-
-
 
 
  //define the model or the collection name

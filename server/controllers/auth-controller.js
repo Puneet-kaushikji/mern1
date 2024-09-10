@@ -1,4 +1,5 @@
 const User = require("../models/user-models");
+const bcrypt = require("bcryptjs");
 
 
 
@@ -6,13 +7,12 @@ const User = require("../models/user-models");
 const home = async (req,res) =>{
     try{
         res
-        .status(200)
-        .send("welcome here and there router page") 
+        .status(200).json({msg:"welcome here and there router page"});
     }
     catch(error){
         console.log(error);
     }
-}
+};
 
 // ####### user Registration Logic  #######
  const register = async (req,res) =>{
@@ -34,9 +34,7 @@ const home = async (req,res) =>{
         res.status(201).json({
             msg: "Registration Successful",
             token: await userCreated.generateToken(),
-            userId: userCreated._id.toString(),
-
-
+            userId: userCreated._id.toString()
         });
     }
     catch (error){
@@ -51,19 +49,19 @@ const home = async (req,res) =>{
         const {email,password} = req.body;
 
         const userExist = await User.findOne({email});
-
+        
         if(!userExist){
             return res.status(400).json({message:"Invalid credentials"});
         }
 
-        //const user = await bcrypt.compare(password,userExist.password);
+        // const user = await bcrypt.compare(password,userExist.password);
         const isPasswordValid = await userExist.comparePassword(password);
 
         if(isPasswordValid){
-            register.status(200).json({
+            res.status(200).json({
                 message:"Login Successful",
                 token: await userExist.generateToken(),
-                userId:userExist._idtoString(),
+                userId:userExist._id.toString(),
             });
         }
         else {
@@ -71,8 +69,9 @@ const home = async (req,res) =>{
         }
 
     } catch(error){
+        console.error(error);
         res.status(500).json({message:"Internal serve error"});
     }
  };
 
-module.exports = {home , register};
+module.exports = {home , register,login};
