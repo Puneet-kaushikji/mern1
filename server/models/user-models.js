@@ -50,6 +50,12 @@
  });
 
 
+ //compare the password
+ userSchema.methods.comparePassword = async function(password){
+    return bcrypt.compare(password,this.password);
+ }
+
+
  //? generate JSON Web Token
  userSchema.methods.generateToken = async function () {
     console.log("I am Token");

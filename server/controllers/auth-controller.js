@@ -55,9 +55,9 @@ const home = async (req,res) =>{
         }
 
         // const user = await bcrypt.compare(password,userExist.password);
-        const isPasswordValid = await userExist.comparePassword(password);
+         const user= await userExist.comparePassword(password);
 
-        if(isPasswordValid){
+        if(user){
             res.status(200).json({
                 message:"Login Successful",
                 token: await userExist.generateToken(),
