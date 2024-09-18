@@ -10,6 +10,8 @@ app.use(express.json());
 
 app.use("/api/auth", router);
 
+app.use(errorMiddleware);
+
 const PORT = 5000;
 
 
