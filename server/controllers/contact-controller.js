@@ -1,6 +1,6 @@
-const Contact = reuire("../models/contact-model");
+const Contact = require("../models/contact-model");
 
-const contactform = async (req,res) => {
+const contactForm = async (req,res) => {
     try{
         const response = req.body;
         await Contact.create(response);

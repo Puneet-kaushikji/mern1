@@ -4,6 +4,7 @@ const app = express();
 const router = require("./router/auth-router");
 const connectDB = require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
+const contactRoute = require("./router/contact-router");
 
 // to get the json data in express app.
 app.use(express.json());
