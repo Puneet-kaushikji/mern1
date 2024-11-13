@@ -7,7 +7,7 @@ export const Register = () => {
     phone: "",
     password: "",
   });
-};
+
 
 const handleInput = (e) => {
   console.log(e);
@@ -32,7 +32,7 @@ return (
         <div className="section-registration">
           <div className="container grid grid-two-cols">
             <div className="registration-image reg-img">
-              <img src="" alt="" width="400" height="500" />
+              <img src="/image/register.png" alt="" width="400" height="500" />
             </div>
             {/* our main registration code  */}
             <div className="registration-form">
@@ -90,3 +90,4 @@ return (
     </section>
   </>
 );
+};
