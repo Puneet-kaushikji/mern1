@@ -20,7 +20,7 @@ const handleInput = (e) => {
   });
 };
 // handle form on submit
-const handleSubit = (e) => {
+const handleSubmit = (e) => {
   e.preventDefault();
   console.log(user);
 };
