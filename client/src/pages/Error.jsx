@@ -12,6 +12,7 @@ export const Error = () => {
             If you believe there's an issue, feel free to report it, and we'll
             look into it.
           </p>
+          
           <div className="btns">
             <NavLink to="/">return home</NavLink>
             <NavLink to="/contact">report problem</NavLink>
