@@ -20,7 +20,7 @@ const signupSchema = z.object({
     .max(20, { message: "Phone must not be more than 20 characters" }),
   password: z
     .string({ required_error: "Password is required" })
-    .min(7, { message: "Password must be at least of 6 characters" })
+    .min(6, { message: "Password must be at least of 6 characters" })
     .max(1024, "Password can't be greater than 1024 characters"),
 });
 
