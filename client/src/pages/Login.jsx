@@ -1,6 +1,6 @@
 import { useState} from "react";
 import { useNavigate } from "react-router-dom";
-
+const URL = "http://localhost:5000/api/auth/login";
 export const Login = () => {
 
   const [user , setUser ] = useState({
@@ -20,12 +20,28 @@ export const Login = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", user);
-    // Add your API call or login logic here
-    // Example: navigate to another page after login
-    navigate("/dashboard");
+
+    try {
+      const response = await fetch(URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log("after login: ", responseData);
+        // toast.success("Registration Successful");
+        // saveTokenInLocalStr(responseData.token);
+        navigate("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
     return (
