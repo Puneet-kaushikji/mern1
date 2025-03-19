@@ -37,6 +37,7 @@ export const Login = () => {
         console.log("after login: ", responseData);
         // toast.success("Registration Successful");
         // saveTokenInLocalStr(responseData.token);
+        
         navigate("/");
       }
     } catch (error) {
