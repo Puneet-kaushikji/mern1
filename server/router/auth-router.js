@@ -23,4 +23,5 @@ router.route("/user").get(authMiddleware, authControllers.user);
 
 
 
+
 module.exports = router;
