@@ -15,7 +15,7 @@ router
     .post(validate(signupSchema), authcontrollers.register);
 router.route("/login").post(authcontrollers.login);
 
-router.route("/user").get(authMiddleware, authControllers.user);
+router.route("/user").get(authMiddleware, authcontrollers.user);
 
 // app.get("/register",(req,res)=>{
 //     res.status(200).send("welcome to registration page");
